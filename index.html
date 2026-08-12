@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — DoomsDayClient</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --border: #e3e5e8;
+    --text: #1f2124;
+    --muted: #5c6169;
+    --accent: #5865f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16171a;
+      --surface: #1e2024;
+      --border: #2e3136;
+      --text: #e6e8eb;
+      --muted: #9aa0a8;
+      --accent: #8b94ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 20px 80px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.2rem; margin: 40px 0 12px; padding-top: 4px;
+    letter-spacing: -0.005em;
+  }
+  h3 { font-size: 1rem; margin: 26px 0 8px; color: var(--accent); }
+  p, li { color: var(--text); }
+  .meta { color: var(--muted); font-size: 0.9rem; margin: 4px 0; }
+  a { color: var(--accent); }
+  code {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1px 5px; font-size: 0.88em;
+  }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  strong { font-weight: 600; }
+  .table-scroll { overflow-x: auto; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--surface); font-weight: 600; }
+  .note {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px; padding: 14px 16px; margin: 20px 0;
+  }
+  .note p { margin: 0; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.88rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Privacy Policy — DoomsDayClient</h1>
+  <p class="meta"><strong>Application:</strong> DoomsDayClient (Discord application ID <code>1233146574109016234</code>)</p>
+  <p class="meta"><strong>Last updated:</strong> REPLACE_WITH_DATE</p>
+  <p class="meta"><strong>Contact:</strong> REPLACE_WITH_EMAIL — also reachable by opening a support ticket on our Discord server.</p>
+</header>
+
+<p>DoomsDayClient (“the bot”) is a private Discord application operated by the administration
+team of a single Discord community. It is not a public bot: it is not listed in any bot
+directory and cannot be invited to other servers. This policy describes exactly what data the
+bot accesses, what it stores, why, and how you can have it removed.</p>
+
+<h2>1. Who operates the bot</h2>
+<p>DoomsDayClient is operated by the administration team of the Discord server it runs on
+(“we”, “us”). The bot runs on infrastructure controlled by us. We are the data controller for
+the data described below.</p>
+
+<h2>2. Privileged Gateway Intents we use</h2>
+<p>Discord requires us to disclose which privileged intents the bot uses and why.</p>
+
+<h3>Server Members Intent</h3>
+<p><strong>What we access:</strong> join and leave events for members of our server, the
+server’s invite use-counts, and the member list at the moment an administrator runs the
+<code>/leaderboard</code> command.</p>
+<p><strong>Why:</strong> (a) to automatically close and archive a member’s open support tickets
+when that member leaves the server; (b) to determine which invite a joining member used, so we
+can show administrators how many members each person has invited; (c) to list every member
+holding a support-team or beta-tester role in an internal staff activity leaderboard.</p>
+<p><strong>What we store:</strong> the ID of the server, the user ID of a member who created an
+invite, and an integer count of how many people that invite brought in. For support tickets, we
+store the user ID of the member who opened the ticket. We do not store member lists, usernames,
+avatars, nicknames, role assignments, e-mail addresses or any other profile data.</p>
+
+<h3>Message Content Intent</h3>
+<p><strong>What we access:</strong> the text of messages sent in channels on our server that the
+bot can see.</p>
+<p><strong>Why:</strong> (a) automated moderation — detecting and removing external links,
+Discord server invite links (advertising), unauthorised file attachments, and a recurring
+“check my bio” scam pattern used to funnel members to malicious links; (b) spam detection —
+comparing a member’s recent messages to identify flooding, which results in a temporary Discord
+timeout; (c) recognising legacy <code>!</code> prefix commands and their arguments;
+(d) generating a transcript of a support ticket when that ticket is closed.</p>
+<p><strong>What we store:</strong> only transcripts of closed support ticket channels — see
+section 3. Message content from ordinary public channels is examined in memory at the moment
+the message is sent and is then discarded. It is never written to disk. The short-term message
+history used for spam detection lives only in memory, covers a rolling window of sixty seconds,
+and is not persisted.</p>
+
+<h3>Presence Intent</h3>
+<p><strong>Not used.</strong> The bot does not request or process presence, status, activity,
+game, Rich Presence, Spotify or custom-status data.</p>
+
+<h2>3. Support ticket transcripts</h2>
+<p>When you open a support ticket, the bot creates a private channel between you and our support
+team. <strong>When that ticket is closed, the conversation in that channel is saved as a
+transcript.</strong></p>
+<ul>
+  <li>Transcripts cover <strong>only</strong> the ticket channel you yourself opened. We never
+      store the contents of public channels, of direct messages, or of conversations you are not
+      part of.</li>
+  <li>A transcript contains the messages in the ticket, their authors’ user IDs and usernames,
+      timestamps, and links to any attachments posted in the ticket.</li>
+  <li>Transcripts are stored in a database on our own server. They are readable only through a
+      web panel that requires logging in with Discord and holding a designated staff role.</li>
+  <li>We keep transcripts so the support team can review how a case was handled and refer back
+      to it. They are not published, not shared with third parties, and not sold.</li>
+</ul>
+<div class="note">
+  <p>You do not have to have your messages stored: opening a ticket is entirely voluntary. If you
+  do not want a transcript to exist, do not open a ticket, or ask us to delete it (section 6).</p>
+</div>
+
+<h2>4. Other data we store</h2>
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Purpose</th><th>Where</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ticket records (ticket ID, channel ID, creator user ID, status, timestamps, close reason)</td>
+      <td>Running the ticket system</td><td>Local SQLite database</td>
+    </tr>
+    <tr>
+      <td>Invite counts (server ID, inviter user ID, count)</td>
+      <td><code>/invites</code> command</td><td>Local SQLite database</td>
+    </tr>
+    <tr>
+      <td>Staff activity counters (user ID, message count, helper points, last seen) — for members holding a support-team or beta-tester role only</td>
+      <td>Internal staff recognition leaderboard</td><td>Local JSON file</td>
+    </tr>
+    <tr>
+      <td>Server configuration (role IDs, channel IDs, localisation settings)</td>
+      <td>Bot configuration</td><td>Local SQLite database</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>We do not collect e-mail addresses, IP addresses, payment information, or any data from
+outside the Discord server the bot operates on.</p>
+
+<h2>5. Sharing and automated processing</h2>
+<ul>
+  <li>We do <strong>not</strong> sell, rent, or share any of this data with third parties.</li>
+  <li>We do <strong>not</strong> use message content, or any other data collected through the
+      bot, to train, fine-tune or evaluate machine learning or AI models, and we do not send it
+      to any third-party AI service.</li>
+  <li>Access is limited to the server’s administration and support team through a role-gated
+      panel.</li>
+</ul>
+
+<h2>6. Your rights — access and deletion</h2>
+<p>You can ask us at any time to:</p>
+<ul>
+  <li>tell you what data we hold about you,</li>
+  <li>delete your ticket transcripts,</li>
+  <li>delete your invite counts and activity statistics.</li>
+</ul>
+<p>Contact us at <strong>REPLACE_WITH_EMAIL</strong> or by opening a support ticket on the
+server. We action deletion requests within 30 days. Leaving the server does not automatically
+delete existing transcripts — ask us if you want them removed.</p>
+<p>If you are in the EU/EEA, you have rights under the GDPR including access, rectification,
+erasure, restriction of processing, and the right to lodge a complaint with your national
+supervisory authority (in Poland: Prezes Urzędu Ochrony Danych Osobowych).</p>
+
+<h2>7. Retention</h2>
+<p>Ticket transcripts and ticket records are retained for as long as the community operates, or
+until deletion is requested. Spam-detection message history is retained for sixty seconds in
+memory. Invite counts and activity statistics are retained until deletion is requested or the
+counters are reset by an administrator.</p>
+
+<h2>8. Security</h2>
+<p>Data is held on infrastructure we control, behind a web panel that requires Discord OAuth
+authentication and a designated staff role. Access is limited to the administration team.</p>
+
+<h2>9. Children</h2>
+<p>The bot is used on a Discord server subject to Discord’s own Terms of Service, which require
+users to meet Discord’s minimum age requirement. We do not knowingly collect data from anyone
+below that age.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>We may update this policy. The “Last updated” date at the top reflects the most recent
+version. Material changes will be announced on the server.</p>
+
+<footer>
+  DoomsDayClient — Discord application ID 1233146574109016234
+</footer>
+
+</div>
+</body>
+</html>
